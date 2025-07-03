@@ -14,7 +14,7 @@ class customer{
    cout<<name<<" "<<ac<<" "<<bal<<"\n";
  }
  
- customer(customer &b){
+ customer(customer &b){   // paramaterized custom copy constructor
     name=b.name;
     ac=b.ac;
     bal=b.bal;
