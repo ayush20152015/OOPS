@@ -1,43 +1,39 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class user{
-   string name;
-   string pass;
+class bank_account {
+    string name;
+    int ac;
+    int bal;
+    static int total_bal;
+    static int number_of_members;
 
- public:
+public:
+    // Constructor (not 'inline', and initializer list syntax corrected)
+    bank_account(string a, int b, int c) : name(a), ac(b), bal(c) {
+        total_bal += c; // should be 'bal', not 'ac'
+        number_of_members++;
+    }
 
+    void displayTotalBalance() {
+        cout << total_bal << "\n";
+    }
 
-  user(){
-
-  }
-
-  user(string a,string b){
-    name=a;
-    pass=b;
-   cout<<"constructor is called for "<<name<<"\n";
-  }
-  
-  
-
-  ~user(){
-        cout<<"destructor is called for "<<name<<"\n";  // in reverse order
-  }
-
-
+    void numberOfMembers() {
+        cout << number_of_members << "\n";
+    }
 };
 
+// Define static members outside the class
+int bank_account::total_bal = 0;
+int bank_account::number_of_members = 0;
 
-int main(){
+int main() {
+    // Do not use 'inline' here
+    bank_account b1("Ayush", 203, 50000);
+    bank_account b2("Aamod", 450, 60000);
+    bank_account b3("Abhishek", 560, 70000);
 
-user a1("ayush","123");
-user a2("divyansh","345");
-user a3("kushagra","567");
-
-user *a4 =  new user;
-
-delete a4;
-
-
-return 0;
+    b1.displayTotalBalance();  // Will print: 180000
+    b1.numberOfMembers();      // Will print: 3
 }
