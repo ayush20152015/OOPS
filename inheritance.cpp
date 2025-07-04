@@ -46,3 +46,27 @@ int main() {
 
     return 0;
 }
+
+
+// important facts
+
+/*
+
+pc:- private cc:- private ---> private
+pc:- private cc:- protected ---> private
+pc:- private cc:- public ---> private
+pc:- protected cc:- private ---> private
+pc:- protected cc:- public ---> protected
+pc:- protected cc:- protected ---> protected
+pc:- public cc:- private ---> private
+pc:- public cc:- protected ---> protected
+pc:- public cc:- public ---> public
+
+
+private>protected>public:
+
+
+
+
+
+*/
